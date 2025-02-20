@@ -16,6 +16,8 @@ according to [these docs](https://docs.victoriametrics.com/victorialogs/quicksta
 
 ## tip
 
+* FEATURE: [`_time` filter](https://docs.victoriametrics.com/victorialogs/logsql/#time-filter): allow using `>`, `>=`, `<` and `<=`. For example, `_time:<2025-02-24Z` selects all the logs with [`_time` field](https://docs.victoriametrics.com/victorialogs/keyconcepts/#time-field) less than `2025-02-24` by UTC. Another example: `_time:>1d` selects all the logs with `_time` field older than one day from the current time. This simplifies querying VictoriaLogs.
+
 * BUGFIX: [elasticsearch data ingestion](https://docs.victoriametrics.com/victorialogs/data-ingestion/elasticsearch/): return fake response to Elasticsearch endpoint without trailing slash. See [this issue](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/8353).
 
 ## [v1.11.0](https://github.com/VictoriaMetrics/VictoriaMetrics/releases/tag/v1.11.0-victorialogs)
@@ -27,6 +29,8 @@ It is safe upgrading to this release from older releases.**
 * FEATURE: [data ingestion](https://docs.victoriametrics.com/victorialogs/data-ingestion/): reduce memory usage by up to 4x when ingesting [wide events](https://jeremymorrell.dev/blog/a-practitioners-guide-to-wide-events/) at high rate into VictoriaLogs.
 * FEATURE: [web UI](https://docs.victoriametrics.com/victorialogs/querying/#web-ui): add ability to limit the number of logs per page in the Group view (client-side). See [this pull request](https://github.com/VictoriaMetrics/VictoriaMetrics/pull/8334).
 * FEATURE: [web UI](https://docs.victoriametrics.com/victorialogs/querying/#web-ui): add ability to disable the hover effect in the Group view to reduce load when viewing many records. See [this issue](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/8135).
+
+* BUGFIX: [data ingestion](https://docs.victoriametrics.com/victorialogs/data-ingestion/): Fixed journald ingestion to support entities with single-character names. See [this issue](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/8314).
 
 ## [v1.10.1](https://github.com/VictoriaMetrics/VictoriaMetrics/releases/tag/v1.10.1-victorialogs)
 
@@ -54,7 +58,6 @@ Released at 2025-02-12
 Released at 2025-02-10
 
 * BUGFIX: [web UI](https://docs.victoriametrics.com/victorialogs/querying/#web-ui): properly apply [this](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/8152) and [this](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/8153) bugfixes. They weren't applied to [`v1.9.0-victorialogs`](https://github.com/VictoriaMetrics/VictoriaMetrics/releases/tag/v1.9.0-victorialogs) by an accident.
-* BUGFIX: [data ingestion](https://docs.victoriametrics.com/victorialogs/data-ingestion/): Fixed journald ingestion to support entities with single-character names. See [this issue](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/8314).
 
 ## [v1.9.0](https://github.com/VictoriaMetrics/VictoriaMetrics/releases/tag/v1.9.0-victorialogs)
 
