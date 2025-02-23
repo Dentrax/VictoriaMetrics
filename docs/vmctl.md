@@ -309,8 +309,9 @@ The timeseries select query would be following:
 The second step of filtering is a time filter and it applies when fetching the datapoints from Influx.
 Time filtering may be configured with two flags:
 
-- --influx-filter-time-start
-- --influx-filter-time-end
+- `--influx-filter-time-start`
+- `--influx-filter-time-end`
+
 Here's an example of importing timeseries for one day only:
 `./vmctl influx --influx-database benchmark --influx-filter-series "where hostname='host_1703'" --influx-filter-time-start "2020-01-01T10:07:00Z" --influx-filter-time-end "2020-01-01T15:07:00Z"`
 
